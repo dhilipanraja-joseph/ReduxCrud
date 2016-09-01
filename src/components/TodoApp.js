@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { createTodo } from '../actions/TodoActions'
-import { deleteTodo } from '../actions/TodoActions'
-import { updateTodo } from '../actions/TodoActions'
+import { createTodo , updateTodo , deleteTodo} from '../actions/TodoActions'
+// import { deleteTodo } from '../actions/TodoActions'
+// import { updateTodo } from '../actions/TodoActions'
 import TodoList from './TodoList'
 import TodoForm from './TodoForm'
+import SearchList from './SearchList'
+
 
 class TodoApp extends Component{
   render(){
@@ -15,6 +17,7 @@ class TodoApp extends Component{
         <h1>todoApp</h1>
         <TodoForm createTodo={createTodo}/>
         <TodoList todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo}/>
+        <SearchList todos={todos}/>
       </div>
     )
   }

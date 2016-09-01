@@ -20,7 +20,7 @@ export default class TodoList extends Component {
     let { todos } = this.props;
     let Todos = todos.map((todo,i)=>{
       return (
-        <li key={i}onDoubleClick={this._delete.bind(null,i)}>{todo}<span onClick={this._update.bind(null,i)}> - </span></li>
+        <li key={i} onDoubleClick={this._delete.bind(null,i)}>{todo}<span onClick={this._update.bind(null,i)}> - </span></li>
       )
     });
     return (
