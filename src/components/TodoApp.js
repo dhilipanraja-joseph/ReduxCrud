@@ -14,7 +14,7 @@ class TodoApp extends Component{
     let { todos , deleteTodo , createTodo , updateTodo } = this.props;
     return (
       <div>
-        <h1>todoApp</h1>
+        <h1>Todo List</h1>
         <TodoForm createTodo={createTodo}/>
         <TodoList todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo}/>
         <SearchList todos={todos}/>

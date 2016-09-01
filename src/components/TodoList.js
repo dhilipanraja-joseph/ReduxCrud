@@ -1,4 +1,15 @@
 import React , { Component} from 'react'
+import FontIcon from 'material-ui/FontIcon'
+import {red500, yellow500, blue500} from 'material-ui/styles/colors'
+
+const iconStyles = {
+  marginRight: 10,
+  fontSize : 15,
+};
+
+const listyle = {
+  fontSize : 24,
+};
 
 export default class TodoList extends Component {
   constructor(){
@@ -13,14 +24,21 @@ export default class TodoList extends Component {
   _update(i){
     //console.log(i);
     let todo = prompt("To Change TODO");
-    this.props.updateTodo(todo,i);
+    if(todo !== ''){
+      this.props.updateTodo(todo,i);
+    }
   }
   render(){
     //console.log(this.props);
     let { todos } = this.props;
     let Todos = todos.map((todo,i)=>{
       return (
-        <li key={i} onDoubleClick={this._delete.bind(null,i)}>{todo}<span onClick={this._update.bind(null,i)}> - </span></li>
+        <li  style={listyle} key={i} onDoubleClick={this._delete.bind(null,i)}>
+          {todo} <FontIcon
+            onClick={this._update.bind(null,i)}
+            className="material-icons"
+            style={iconStyles}>edit</FontIcon>
+        </li>
       )
     });
     return (

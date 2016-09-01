@@ -1,5 +1,9 @@
 import React , {Component} from 'react'
+import TextField from 'material-ui/TextField';
 
+const listyle = {
+  fontSize : 24,
+};
 export default class SearchList extends Component{
   constructor(){
     super();
@@ -21,13 +25,18 @@ export default class SearchList extends Component{
   render(){
     let fList = this.state.filterList.map((list,i)=>{
       return (
-        <li key={i}>{list}</li>
+        <li style={listyle} key={i}>{list}</li>
       )
     });
     return (
       <div>
         <form>
-          <input type="text" onChange={this._filterList} placeholder="Filter List"/>
+        <TextField
+          hintText="FILTER LIST"
+          fullWidth={true}
+          onChange={this._filterList}
+        />
+        {/* <input type="text"  placeholder="Filter List"/> */}
         </form>
         <ul>
           {fList}
